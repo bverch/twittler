@@ -3,24 +3,86 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+	<link rel="stylesheet" type="text/css" href = "twittler.css">
   </head>
   <body>
+  <button class="refresh">Home</button>
+  <div id="tweets">
+	  <ul>
+	  </ul>
+  </div>
+  
     <script>
 
+	
+		var numOldTweets = 0;
       $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
-
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
-        }
+		$(document).on("click", "#name", function(){displayNamedTweets(this.className)});
+		$('button').on('click', function(){displayNewTweets()});
+		
+        displayNewTweets();
+		
 
       });
+	  
+	  
+	  function displayNewTweets() {
+		var $body = $('#tweets');
+		$body.html('');
+        var index = 0;
+        while(index < streams.home.length - 1){
+          var tweet = streams.home[index];
+		  var $name = $('<p id="name"></p>');
+          var $message = $('<p></p>');
+		  var $tweet = $('<div></div>');
+		  var date = tweet.created_at;
+		  var currDate = new Date();
+          var $date = $('<p></p>');
+		  var timeStamp = currDate.getTime() - date.getTime();
+		  $name.addClass(tweet.user);
+		  timeStamp = timeStamp/1000;
+		  timeStamp = Math.floor(timeStamp);
+		  $name.text('@' + tweet.user + ': ');
+          $message.text(tweet.message);
+		  $date.text(timeStamp + ' seconds ago');
+		  $name.appendTo($tweet);
+		  $message.appendTo($tweet);
+		  $date.appendTo($tweet);
+		  $tweet.prependTo($body);
+          index += 1;
+		  numOldTweets++;
+        }
+	  }
+	  
+	  function displayNamedTweets(name){
+		var $body = $('#tweets');
+		$body.html('');
+        var index = 0;
+        while(index < streams.home.length - 1){
+          var tweet = streams.home[index];
+		  var $name = $('<p id="name"></p>');
+          var $message = $('<p></p>');
+		  var $tweet = $('<div></div>');
+		  var date = tweet.created_at;
+		  var currDate = new Date();
+          var $date = $('<p></p>');
+		  var timeStamp = currDate.getTime() - date.getTime();
+		  $name.addClass(tweet.user);
+		  timeStamp = timeStamp/1000;
+		  timeStamp = Math.floor(timeStamp);
+		  $name.text('@' + tweet.user + ': ');
+          $message.text(tweet.message);
+		  $date.text(timeStamp + ' seconds ago');
+		  if(name == tweet.user){
+			  $name.appendTo($tweet);
+			  $message.appendTo($tweet);
+			  $date.appendTo($tweet);
+			  $tweet.prependTo($body);
+		  }
+          index += 1;
+		  numOldTweets++;
+        }
+	  }
 
     </script>
   </body>

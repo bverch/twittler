@@ -1,0 +1,52 @@
+div {
+	background-color: rgb(29,202,255);
+	margin: 10px;
+	box-shadow: 2px 3px 3px rgb(135, 129, 112);
+	width: 500px;
+	padding: 10px;
+	border-radius: 5px;
+	font-family: calibri;
+}
+#tweets {
+	background-color: rgb(255, 255, 255);
+	margin: 10px;
+	box-shadow: 0px 0px 0px rgb(135, 129, 112);
+	width: 500px;
+	padding: 0px;
+	font-family: calibri;
+}
+
+#name{
+    font-weight: bold;
+}
+
+#name:hover{
+	background-color:rgb(255, 131, 5);
+	cursor: pointer;
+    font-weight: bold;
+}
+
+button {
+    background-color: rgb(29, 202, 255);
+    border: none;
+    color: white;
+	box-shadow: 2px 3px 3px rgb(135, 129, 112);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+button:hover{
+    background-color: rgb(244, 163, 0);
+    border: none;
+    color: white;
+	box-shadow: 2px 3px 3px rgb(135, 129, 112);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	cursor: pointer;
+}
