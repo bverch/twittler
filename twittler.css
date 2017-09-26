@@ -1,3 +1,6 @@
+body {
+	background-color lightblue;
+}
 div {
 	background-color: rgb(29,202,255);
 	margin: 10px;
@@ -8,8 +11,7 @@ div {
 	font-family: calibri;
 }
 #tweets {
-	background-color: rgb(255, 255, 255);
-	margin: 10px;
+	background-color: #0084b4;
 	box-shadow: 0px 0px 0px rgb(135, 129, 112);
 	width: 500px;
 	padding: 0px;
@@ -24,6 +26,23 @@ div {
 	background-color:rgb(255, 131, 5);
 	cursor: pointer;
     font-weight: bold;
+}
+
+.center {
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+	
+}
+
+.bcenter{
+	box-shadow: none;
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+	text-align: center;
+    color: white;
+    background-color: #0084b4;
 }
 
 button {
